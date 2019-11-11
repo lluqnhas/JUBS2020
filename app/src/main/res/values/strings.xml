@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">appEstresse</string>
+    <string name="modalidade">MODALIDADE</string>
+    <string name="idade">ANO DE NASCIMENTO</string>
+    <string name="sexo">SEXO</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
+    <string name="email">E-MAIL</string>
+    <string name="senha">SENHA</string>
+
+    <string-array name="perguntas">
+        <item> Mãos e/ou pés frios </item>
+        <item> Boca Seca </item>
+        <item> Nó ou dor no estômago </item>
+        <item> Aumento de sudorese (muito suor) </item>
+        <item> Tensão muscular (dores nas costas, pescoço, ombros) </item>
+        <item> Aperto na mandíbula/ranger de dentes, ou roer unhas ou ponta de caneta </item>
+        <item> Diarréia passageira </item>
+        <item> Insônia, dificuldade de dormir </item>
+        <item> Taquicardia (batimentos acelerados do coração) </item>
+        <item> Respiração ofegante, entrecortada </item>
+        <item> Hipertensão súbita e passageira (pressão alta súbita e passageira) </item>
+        <item> Mudança de apetite (comer bastante ou Ter falta de apetite) </item>
+        <item> Aumento súbito de motivação </item>
+        <item> Entusiasmo súbito </item>
+        <item> Vontade súbita de iniciar novos projetos </item>
+
+        <item> fase_II</item>
+        <item> Problemas com a memória, esquecimentos </item>
+        <item> Mal-estar generalizado, sem causa específica </item>
+        <item> Formigamento nas extremidades (pés ou mãos) </item>
+        <item> Sensação de desgaste físico constante </item>
+        <item> Mudança de apetite </item>
+        <item> Aparecimento de problemas dermatológicos (pele) </item>
+        <item> Hipertensão arterial (pressão alta) </item>
+        <item> Cansaço Constante </item>
+        <item> Aparecimento de gastrite prolongada (queimação no estômago, azia) </item>
+        <item> Tontura, sensação de estar flutuando </item>
+        <item> Sensibilidade emotiva excessiva, emociona-se por qualquer coisa </item>
+        <item> Dúvidas quanto a si próprio </item>
+        <item> Pensamento constante sobre um só assunto </item>
+        <item> Irritabilidade excessiva </item>
+        <item> Diminuição da libido (desejo sexual diminuído) </item>
+
+        <item> fase_III</item>
+        <item> Diarréias frequentes </item>
+        <item> Dificuldades Sexuais </item>
+        <item> Formigamento nas extremidades (mãos e pés) </item>
+        <item> Insônia </item>
+        <item> Tiques nervosos </item>
+        <item> Hipertensão arterial confirmada </item>
+        <item> Problemas dermatológicos prolongados (pele) </item>
+        <item> Mudança extrema de apetite </item>
+        <item> Taquicardia (batimento acelerado do coração) </item>
+        <item> Tontura frequente </item>
+        <item> Úlcera </item>
+        <item> Impossibilidade de Trabalhar </item>
+        <item> Pesadelos </item>
+        <item> Sensação de incompetência em todas as áreas </item>
+        <item> Vontade de fugir de tudo</item>
+        <item> Apatia, vontade de nada fazer, depressão ou raiva prolongada</item>
+        <item> Cansaço excessivo </item>
+        <item> Pensamento constante sobre um mesmo assunto </item>
+        <item> Irritabilidade sem causa aparente </item>
+        <item> Angústia ou ansiedade diária </item>
+        <item> Hipersensibilidade emotiva </item>
+        <item> Perda do senso de humor </item>
+    </string-array>
+
+    <string-array name="orientacao">
+        <item> Fase I: Assinale o(s) sintoma(s) que tem experimentado nas ÚLTIMAS 24 HORAS: </item>
+        <item> Fase II: Assinale o(s) sintoma(s) que tem experimentado no ÚLTIMO MÊS: </item>
+        <item> Fase III: Assinale o(s) sintoma(s) que tem experimentado nos ÚLTIMOS 3 (TRÊS) MESES: </item>
+    </string-array>
+
+</resources>

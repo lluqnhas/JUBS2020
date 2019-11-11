@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view_nomeJogo"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/nome_jogo"
+        />
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/txt_modalidade"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/modalidade"
+        android:inputType="text"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/txt_idade"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/idade"
+        android:inputType="number"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/txt_sexo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/sexo"
+        android:inputType="text"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:id="@+id/bt_play"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/button_play"
+        android:background="@android:color/transparent"
+        />
+
+</LinearLayout>
