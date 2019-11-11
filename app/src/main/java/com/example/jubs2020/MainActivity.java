@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,12 +78,75 @@ public class MainActivity extends AppCompatActivity {
                     txt_sexo.setError("campo obrigatorio");
                     txt_sexo.requestFocus();
                 } else {
+
+                    pb.setTitle("Autenticado ...");
                     pb.show();
-                    if(inserirAuth(email, senha)){
-                        insertFirestore( new Atleta(modalidade, idade, sexo));
-                        pb.dismiss();
-                        startActivity(new Intent(MainActivity.this, Main2Activity.class));
-                    }
+
+                    //autenticando
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.createUserWithEmailAndPassword(email, senha)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                    //logando
+                                    pb.setTitle("Acessando Dados ...");
+                                    mAuth = FirebaseAuth.getInstance();
+                                    mAuth.signInWithEmailAndPassword(email, senha)
+                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                                    ArrayList<String> respostas=  new ArrayList<>();
+                                                    ArrayList<Integer> resultado = new ArrayList<>();
+
+                                                    //registrando
+                                                    pb.setTitle("So mais um instante ...");
+                                                    bd = FirebaseFirestore.getInstance();
+                                                    String id = mAuth.getCurrentUser().getUid();
+                                                    Map<String, Object> dados = new HashMap<>();
+                                                    dados.put("id", id);
+                                                    dados.put("modalidade", modalidade);
+                                                    dados.put("ano nascimento", idade);
+                                                    dados.put("sexo", sexo);
+                                                    dados.put("respostas", respostas);
+                                                    dados.put("resultado", resultado);
+
+                                                    bd.collection("Dados").document(id).set(dados)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                                    pb.setTitle("Concluido!");
+                                                                    pb.dismiss();
+                                                                    //proxima tela
+                                                                    startActivity(new Intent(MainActivity.this, Main2Activity.class));
+
+                                                                }
+                                                            })
+                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                @Override
+                                                                public void onFailure(@NonNull Exception e) {
+                                                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
+
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                 }
 
             }
@@ -90,50 +154,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //gerando um id pessoal no firebase(chave primaria)
-    private boolean inserirAuth(final String email, final String senha){
+    /*
+    private void inserirAuth(final String email, final String senha, final Atleta a){
 
-        final boolean[] flag = {false};
         pb.setTitle("Autenticado ...");
         mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        loginAuth(email, senha);
-                        flag[0] = true;
+                        loginAuth(email, senha, a);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        flag[0] = false;
                     }
                 });
-        return flag[0];
     }
 
-    private boolean loginAuth(String email, String senha){
+    private void loginAuth(String email, String senha, final Atleta a){
 
-        final boolean[] flag = {false};
         pb.setTitle("Acessando Dados ...");
         mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        flag[0] = true;
+                        insertFirestore(a);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        flag[0] = false;
                     }
                 });
-        return flag[0];
     }
 
     private void insertFirestore(Atleta a ) {
@@ -149,7 +206,9 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainActivity.this, "Acesso permitido!", Toast.LENGTH_SHORT).show();
+                        pb.setTitle("Concluido!");
+                        startActivity(new Intent(MainActivity.this, Main2Activity.class));
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -159,5 +218,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
+*/
 }
