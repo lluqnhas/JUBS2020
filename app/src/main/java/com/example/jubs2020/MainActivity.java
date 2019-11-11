@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                                                     //registrando
                                                     pb.setTitle("So mais um instante ...");
                                                     bd = FirebaseFirestore.getInstance();
-                                                    String id = mAuth.getCurrentUser().getUid();
+                                                    final String id = mAuth.getCurrentUser().getUid();
                                                     Map<String, Object> dados = new HashMap<>();
                                                     dados.put("id", id);
                                                     dados.put("modalidade", modalidade);

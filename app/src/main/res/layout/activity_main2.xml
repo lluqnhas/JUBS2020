@@ -9,21 +9,38 @@
     android:paddingBottom="10dp"
     tools:context=".Main2Activity">
 
-    <TextView
-        android:id="@+id/txt_pergunta"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/colorPrimaryDark"/>
-
-    <TextView
-        android:id="@+id/txt_orientacao"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="15sp"
-        android:background="@color/colorAccent"/>
+        android:layout_height="400dp">
+
+        <ImageView
+            android:id="@+id/notas_perguntas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/notas_claras" />
+
+        <TextView
+            android:id="@+id/txt_pergunta"
+            android:layout_width="301dp"
+            android:layout_height="205dp"
+            android:layout_alignStart="@+id/notas_perguntas"
+            android:layout_alignTop="@+id/notas_perguntas"
+            android:layout_alignEnd="@+id/notas_perguntas"
+            android:layout_alignBottom="@+id/notas_perguntas"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="205dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="102dp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

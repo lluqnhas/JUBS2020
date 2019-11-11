@@ -30,14 +30,6 @@ public class Main3Activity extends AppCompatActivity {
 
         txt_resultado = (TextView) findViewById(R.id.txt_resultado);
 
-        Intent intent = getIntent();
-        Bundle dados = intent.getExtras();
-
-        faseI   = Integer.parseInt(dados.getString("faseI").toString());
-        faseII  = Integer.parseInt(dados.getString("faseII").toString());
-        faseIII = Integer.parseInt(dados.getString("faseIII").toString());
-
-        //faseI + " " + faseII + " " + faseIII
         txt_resultado.setText("deu bommmm");
 
         pieChart = (PieChart) findViewById(R.id.graficopizza);
@@ -53,9 +45,9 @@ public class Main3Activity extends AppCompatActivity {
         pieChart.setDescription(description);
 
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry(1,faseI));
-        pieEntries.add(new PieEntry(2,faseII));
-        pieEntries.add(new PieEntry(3,faseIII));
+        pieEntries.add(new PieEntry(1,6));
+        pieEntries.add(new PieEntry(2,6));
+        pieEntries.add(new PieEntry(3,6));
 
         PieDataSet pieDataSet = new PieDataSet(pieEntries, "1 >> faseI, 2 >> faseII, 3 >> faseIII");
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);

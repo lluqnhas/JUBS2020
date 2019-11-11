@@ -7,6 +7,7 @@
     <string name="nao">NÃO</string>
     <string name="email">E-MAIL</string>
     <string name="senha">SENHA</string>
+    <string name="fase_1">FASE I</string>
 
     <string-array name="perguntas">
         <item> Mãos e/ou pés frios </item>
